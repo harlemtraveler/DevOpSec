@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Link from 'gatsby-link'
+import './neon.css'
 import Logo from './Logo.js'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -23,13 +24,58 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
 `;
 
+const MainNav = styled.nav`
+  ul {
+    list-style: none;
+    display: flex;
+    margin: .70rem;
+    li {
+      margin: auto 15px;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      a {
+        text-decoration: none;
+        color: #fff;
+        &:hover {
+          -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+          -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+          animation: neon2 1.5s ease-in-out infinite alternate;
+        }
+      }
+    }
+  }
+`;
 
 class Header extends Component {
+
+  componentDidUpdate(prevProps, prevState) {
+
+    const { location } = this.props;
+    if (location.pathname !== prevProps.location.pathname) {
+      if (this.props.location.pathname === '/' || this.props.location.pathname === '/service') {
+        this.wrapper.animate([{ height: '20vh' }, { height: '70vh' }], {
+          duration: 300,
+          fill: 'forwards',
+          easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+          iterations: 1
+        });
+      } else {
+        this.wrapper.animate([{ height: '70vh' }, { height: '20vh' }],{
+          duration: 300,
+          fill: 'forwards',
+          easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+          iterations: 1
+        });
+      }
+    }
+  }
 
   render() {
     const { data, location } = this.props;
     return (
-      <HeaderWrapper>
+      <HeaderWrapper
+        isHome={location.pathname === '/'}
+        ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}>>
         <HeaderContainer>
           <h1 style={{ margin: 0 }}>
             <Link
@@ -42,7 +88,24 @@ class Header extends Component {
               <Logo />
             </Link>
           </h1>
+          <MainNav>
+            <ul>
+              <li>
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link to={"/service"}>Services</Link>
+              </li>
+              <li>
+                <Link to={"/about"}>About</Link>
+              </li>
+              <li>
+                <Link to={"/contact"}>Contact</Link>
+              </li>
+            </ul>
+          </MainNav>
         </HeaderContainer>
+
         <Img
           style={{
             position: 'absolute',
@@ -52,7 +115,9 @@ class Header extends Component {
             height: '100%',
             // opacity: 0.3
           }}
-          sizes={data.background.sizes}
+          sizes={
+            location.pathname === "/service" ? data.headerImage.sizes : data.background.sizes
+          }
         />
       </HeaderWrapper>
     );
@@ -61,32 +126,3 @@ class Header extends Component {
 }
 
 export default Header;
-
-// const Header = ({ siteTitle }) => (
-//   <div
-//     style={{
-//       background: 'rebeccapurple',
-//       marginBottom: '1.45rem',
-//     }}
-//   >
-//     <div
-//       style={{
-//         margin: '0 auto',
-//         maxWidth: 960,
-//         padding: '1.45rem 1.0875rem',
-//       }}
-//     >
-//       <h1 style={{ margin: 0 }}>
-//         <Link
-//           to="/"
-//           style={{
-//             color: 'white',
-//             textDecoration: 'none',
-//           }}
-//         >
-//           {siteTitle}
-//         </Link>
-//       </h1>
-//     </div>
-//   </div>
-// )

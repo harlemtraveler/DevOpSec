@@ -44,7 +44,12 @@ export const query = graphql`
     }
     background: imageSharp(id: { regex: "/images/fiber-optic.jpeg/" }) {
       sizes(maxWidth: 1240) {
-        ...GatsbyImageSharpSizes
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    headerImage: imageSharp(id: { regex: "/images/rj45.jpeg/" }) {
+      sizes(maxWidth: 1240) {
+        ...GatsbyImageSharpSizes_tracedSVG
       }
     }
   }
