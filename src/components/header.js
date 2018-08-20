@@ -5,6 +5,7 @@ import './neon.css'
 import Logo from './Logo.js'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import OpenSans from 'gatsby-plugin-google-fonts'
 
 
 const HeaderWrapper = styled.div`
@@ -12,7 +13,8 @@ const HeaderWrapper = styled.div`
   marginBottom: 1.45rem;
   overflow: hidden;
   position: relative;
-  height: 70vh;
+  height: 60vh;
+  color: #fff;
 `;
 
 const HeaderContainer = styled.div`
@@ -46,6 +48,18 @@ const MainNav = styled.nav`
   }
 `;
 
+const BannerText = styled.div`
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 35vh;
+  float: right;
+  font-family: Open Sans, sans-serif;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+`;
+
 class Header extends Component {
 
   componentDidUpdate(prevProps, prevState) {
@@ -57,8 +71,8 @@ class Header extends Component {
 
     if (location.pathname !== prevProps.location.pathname) {
       if (this.props.location.pathname === '/' || this.props.location.pathname === '/service' ) {
-        if (imgHeight < Math.round(0.7 * viewPortHeight)) {
-          this.wrapper.animate([{ height: '20vh' }, { height: '70vh' }], {
+        if (imgHeight < Math.round(0.6 * viewPortHeight)) {
+          this.wrapper.animate([{ height: '20vh' }, { height: '60vh' }], {
             duration: 300,
             fill: 'forwards',
             easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
@@ -68,7 +82,7 @@ class Header extends Component {
       }
         else {
           if (imgHeight > Math.round(0.2 * viewPortHeight)) {
-            this.wrapper.animate([{ height: '70vh' }, { height: '20vh' }],{
+            this.wrapper.animate([{ height: '60vh' }, { height: '20vh' }],{
               duration: 300,
               fill: 'forwards',
               easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
@@ -98,6 +112,14 @@ class Header extends Component {
               <Logo />
             </Link>
           </h1>
+
+          <BannerText>
+            <h2>
+              Architecting, Building, and Securing your
+              business allowing you to focus on Innovation.
+            </h2>
+          </BannerText>
+
           <MainNav
             style={
               location.pathname === '/service/' ? {fontColor: '#FF1177'} : {fontColor: '#fff'}
@@ -118,6 +140,7 @@ class Header extends Component {
               </li>
             </ul>
           </MainNav>
+
         </HeaderContainer>
 
         <Img

@@ -21,6 +21,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Open Sans`
+        ]
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         excerpt_separator: `<!-- end -->`
