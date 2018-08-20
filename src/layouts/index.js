@@ -47,6 +47,11 @@ export const query = graphql`
         ...GatsbyImageSharpSizes_tracedSVG
       }
     }
+    backgroundHeight: imageSharp {
+      id resolutions {
+        height
+      }
+    }
     headerImage: imageSharp(id: { regex: "/images/rj45.jpeg/" }) {
       sizes(maxWidth: 1240) {
         ...GatsbyImageSharpSizes_tracedSVG

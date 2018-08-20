@@ -8,7 +8,7 @@ import Img from 'gatsby-image'
 
 
 const HeaderWrapper = styled.div`
-  ${'' /* background: #524763; */}
+  background: #4f6272;
   marginBottom: 1.45rem;
   overflow: hidden;
   position: relative;
@@ -17,7 +17,7 @@ const HeaderWrapper = styled.div`
 
 const HeaderContainer = styled.div`
   margin: 0 0;
-  max-width: 1240px;
+  ${'' /* max-width: 1240px; */}
   position: relative;
   z-index: 2;
   display: flex;
@@ -50,32 +50,42 @@ class Header extends Component {
 
   componentDidUpdate(prevProps, prevState) {
 
-    const { location } = this.props;
+    const { data, location } = this.props;
+    const imgHeight = this.wrapper.clientHeight;
+    const viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    // console.log(Math.round(0.7 * viewPortHeight));
+
     if (location.pathname !== prevProps.location.pathname) {
-      if (this.props.location.pathname === '/' || this.props.location.pathname === '/service') {
-        this.wrapper.animate([{ height: '20vh' }, { height: '70vh' }], {
-          duration: 300,
-          fill: 'forwards',
-          easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
-          iterations: 1
-        });
-      } else {
-        this.wrapper.animate([{ height: '70vh' }, { height: '20vh' }],{
-          duration: 300,
-          fill: 'forwards',
-          easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
-          iterations: 1
-        });
+      if (this.props.location.pathname === '/' || this.props.location.pathname === '/service' ) {
+        if (imgHeight < Math.round(0.7 * viewPortHeight)) {
+          this.wrapper.animate([{ height: '20vh' }, { height: '70vh' }], {
+            duration: 300,
+            fill: 'forwards',
+            easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+            iterations: 1
+          });
+        }
+      }
+        else {
+          if (imgHeight > Math.round(0.2 * viewPortHeight)) {
+            this.wrapper.animate([{ height: '70vh' }, { height: '20vh' }],{
+              duration: 300,
+              fill: 'forwards',
+              easing: 'cubic-bezier(0.86, 0, 0.07, 1)',
+              iterations: 1
+            });
+          }
       }
     }
   }
 
   render() {
     const { data, location } = this.props;
+
     return (
       <HeaderWrapper
         isHome={location.pathname === '/'}
-        ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}>>
+        ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}>
         <HeaderContainer>
           <h1 style={{ margin: 0 }}>
             <Link
@@ -88,7 +98,11 @@ class Header extends Component {
               <Logo />
             </Link>
           </h1>
-          <MainNav>
+          <MainNav
+            style={
+              location.pathname === '/service/' ? {fontColor: '#FF1177'} : {fontColor: '#fff'}
+            }
+          >
             <ul>
               <li>
                 <Link to={"/"}>Home</Link>
@@ -113,7 +127,7 @@ class Header extends Component {
             top: 0,
             width: '100%',
             height: '100%',
-            // opacity: 0.3
+            opacity: 0.5
           }}
           sizes={
             location.pathname === "/service" ? data.headerImage.sizes : data.background.sizes
