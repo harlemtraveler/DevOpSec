@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
-import MailIcon from '../components/MailIcon'
-import LinkedInIcon from '../components/LinkedInIcon'
-import GithubIcon from '../components/GithubIcon'
-
-const IconContainer = styled.div`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-`;
+import { IconContainer } from '../components/StyledComponents'
+import { MailIcon, LinkedInIcon, GithubIcon} from '../components/icons'
 
 class Contact extends Component {
 
@@ -23,7 +14,29 @@ class Contact extends Component {
           ui art party meggings ea meditation next level hot chicken kale
           chips hell of cardigan mixtape. Kickstarter farm-to-table portland
           echo park dreamcatcher. Ethical taxidermy ennui swag meditation
-          jianbing chambray trust fund tilde
+          jianbing chambray trust fund tilde.
+          <br />
+          <br />
+          Lorem ipsum dolor amet gochujang copper mug before they sold out,
+          austin freegan kogi biodiesel scenester meh iceland +1 authentic
+          squid master cleanse brunch. Chicharrones single-origin coffee vinyl
+          church-key disrupt, austin meggings gluten-free waistcoat tousled
+          seitan pickled pok pok subway tile VHS. La croix normcore messenger
+          bag, tousled viral taiyaki ugh twee fixie. Portland forage chambray
+          pickled. Gochujang echo park PBR&B blog irony, pabst neutra man bun
+          keffiyeh asymmetrical.
+          <br />
+          <br />
+          Distillery meditation raclette swag, jianbing cliche literally man
+          bun brunch vape echo park four loko. Gluten-free tattooed synth
+          schlitz vape XOXO skateboard, echo park fingerstache. 90's master
+          cleanse blue bottle, banjo williamsburg chicharrones crucifix.
+          Actually photo booth poutine humblebrag plaid 8-bit ramps kinfolk
+          yr. Banh mi umami swag four dollar toast letterpress. Portland
+          enamel pin tattooed, scenester vaporware direct trade live-edge
+          la croix. Vaporware pabst venmo vexillologist post-ironic aesthetic
+          retro truffaut kombucha you probably haven't heard of them bushwick
+          intelligentsia craft beer forage gentrify.
         </p>
         <IconContainer>
           <a href=""><MailIcon /></a>

@@ -2,63 +2,14 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Link from 'gatsby-link'
 import './neon.css'
-import Logo from './Logo.js'
+import Logo from './icons/Logo.js'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import OpenSans from 'gatsby-plugin-google-fonts'
-
-
-const HeaderWrapper = styled.div`
-  background: #4f6272;
-  marginBottom: 1.45rem;
-  overflow: hidden;
-  position: relative;
-  height: 60vh;
-  color: #fff;
-`;
-
-const HeaderContainer = styled.div`
-  margin: 0 0;
-  ${'' /* max-width: 1240px; */}
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const MainNav = styled.nav`
-  ul {
-    list-style: none;
-    display: flex;
-    margin: .70rem;
-    li {
-      margin: auto 15px;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      a {
-        text-decoration: none;
-        color: #fff;
-        &:hover {
-          -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
-          -moz-animation: neon2 1.5s ease-in-out infinite alternate;
-          animation: neon2 1.5s ease-in-out infinite alternate;
-        }
-      }
-    }
-  }
-`;
-
-const BannerText = styled.div`
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 35vh;
-  float: right;
-  font-family: Open Sans, sans-serif;
-  text-align: center;
-  color: #fff;
-  z-index: 2;
-`;
+import { BannerText,
+  HeaderWrapper,
+  HeaderContainer,
+  MainNav } from './StyledComponents'
 
 class Header extends Component {
 
