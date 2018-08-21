@@ -5,7 +5,7 @@ import './neon.css'
 import Logo from './icons/Logo.js'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import OpenSans from 'gatsby-plugin-google-fonts'
+import Robot from 'gatsby-plugin-google-fonts'
 import { BannerText,
   HeaderWrapper,
   HeaderContainer,

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import Roboto from 'gatsby-plugin-google-fonts'
+
 
 export const IconContainer = styled.div`
   margin: 0;
@@ -13,7 +15,7 @@ export const BannerText = styled.div`
   margin: 0;
   padding: 0;
   top: 30vh;
-  font-family: Open Sans, sans-serif;
+  ${'' /* font-family: 'Roboto', sans-serif; */}
   text-align: center;
   position: relative;
   color: #fff;
@@ -60,6 +62,12 @@ export const MainNav = styled.nav`
   }
 `;
 
+export const HomePageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-rows: 1fr 1fr 1fr;
+`;
+
 export const PageSection = styled.div`
   height: 50vh;
   width: 100%;
@@ -78,6 +86,14 @@ export const ContentBlock = styled.figure`
   text-align: center;
 `;
 
+export const ImageSquare = styled.div`
+  height: 25vh;
+  width: 15vw;
+  padding: 0;
+  position: relative;
+  float: left;
+`;
+
 export const QuoteButton = styled.a`
   text-decoration: none;
   border:2px solid;
@@ -85,7 +101,7 @@ export const QuoteButton = styled.a`
   font-size: 20px;
   background: transparent;
   color: #fd5200;
-  font-family: Open Sans, sans-serif;
+  ${'' /* font-family: Roboto, sans-serif; */}
   font-weight: bold;
   &:hover {
     background: #fd5200;
