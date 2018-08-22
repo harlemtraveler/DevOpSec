@@ -8,60 +8,54 @@ import { BannerText,
   ContentBlock,
   ImageSquare,
   HomePageContainer,
+  WelcomeSection,
+  QuoteSection,
   QuoteButton } from '../components/StyledComponents'
 import {
   ChartIcon,
   GearIcon,
   HandshakeIcon,
   MeterIcon,
-  ShieldIcon } from '../components/icons'
-
+  ShieldIcon,
+  MenuIcon } from '../components/icons'
 
 
 const IndexPage = ({ data }) => (
   <div>
     <HomePageContainer>
-      <PageSection
-        style={{
-          background: '#fff',
-          textAlign: 'center',
-          display: 'flex',
-          alignContent: 'start'
-          // justifyContent: 'space-around'
-        }}>
-        <ImageSquare style={{paddingTop: '5vh'}}>
+      <WelcomeSection>
           <Img
+            className='lightbulb'
             style={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
+              display: 'block',
+              maxHeight: '50vh',
             }}
             sizes={data.ImacPinkScreen.sizes}
           />
-        </ImageSquare>
-        <div style={{paddingTop: '5vh'}}>
+
+        <div
+          style={{
+            textAlign: 'left',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'auto'
+          }}>
         <h1>Welcome</h1>
         <p>
           We understand that your business is more than a website. It's an idea, a passion,
-          <br />
           something that that world needs.You decided to take the initiative and make it a reality.
-          <br />
           DevOpSec's mission is to support your company, enable you to focus on innovation,
-          <br />
           while we provide the tools for it to grow, and scale flawlessly. We not only want you
-          <br />
           to succeed, but for your clients to be satisfied, enjoying the product or service your
-          <br />
           business brought to market.
           <br />
-          <br />
           ...all without the man-buns, hipster-stache, and gluten allergies.
-
         </p>
-        </div>
-      </PageSection>
 
-      <PageSection style={{position: 'relative'}}>
+        </div>
+      </WelcomeSection>
+
+      <QuoteSection>
         <Img
           style={{
             position: 'absolute',
@@ -79,18 +73,16 @@ const IndexPage = ({ data }) => (
             <p>Learn how we can help scale your business with a free consultation.</p>
             <QuoteButton href="#">Quote</QuoteButton>
           </div>
-      </PageSection>
+      </QuoteSection>
 
-      <PageSection style={{background: '#fff'}}>
+      <PageSection>
         <IconContainer>
           <ContentBlock>
             <a href="#"><ChartIcon /></a>
             <figcaption>
               <h4>Cost Optimization</h4>
               <p>
-                Keeping your business
-                <br />
-                cost under control
+                Keeping your business cost under control
               </p>
             </figcaption>
           </ContentBlock>
@@ -100,9 +92,7 @@ const IndexPage = ({ data }) => (
             <figcaption>
               <h4>Operational Excellence</h4>
               <p>
-                Keeping your business
-                <br />
-                cost under control
+                Keeping your business cost under control
               </p>
             </figcaption>
           </ContentBlock>
@@ -112,9 +102,7 @@ const IndexPage = ({ data }) => (
             <figcaption>
               <h4>Reliability</h4>
               <p>
-                Keeping your business
-                <br />
-                cost under control
+                Keeping your business cost under control
               </p>
             </figcaption>
           </ContentBlock>
@@ -124,9 +112,7 @@ const IndexPage = ({ data }) => (
             <figcaption>
               <h4>Performance Efficiency</h4>
               <p>
-                Keeping your business
-                <br />
-                cost under control
+                Keeping your business cost under control
               </p>
             </figcaption>
           </ContentBlock>
@@ -136,9 +122,7 @@ const IndexPage = ({ data }) => (
             <figcaption>
               <h4>Security</h4>
               <p>
-                Keeping your business
-                <br />
-                cost under control
+                Keeping your business cost under control
               </p>
             </figcaption>
           </ContentBlock>
@@ -170,21 +154,11 @@ export const query = graphql`
 // #969696
 // <Link to="/page-2/">Go to page 2</Link>
 
-/*
-  Code for background video (Two dif ways)
-  <video
-    autoPlay
-    loop
-    muted
-    style={{height: '100%', width: '100%'}}
-    src={'https://www.youtube.com/embed/A9abHX_NSK4'}
-    type={'video/mp4'}></video>
+// Text in 2nd row overflows at 1032px
+// Text under icons in 5th row overflows at 650px
 
-  <iframe
-    width={'100%'}
-    height={"100%"}
-    src="https://www.youtube.com/embed/A9abHX_NSK4"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen></iframe>
+/*
+  Gradient style:
+
+  style={{background: 'linear-gradient(to left, #F1F2B5, #135058)'}}
 */

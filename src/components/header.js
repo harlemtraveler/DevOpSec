@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Link from 'gatsby-link'
-import './neon.css'
-import Logo from './icons/Logo.js'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Robot from 'gatsby-plugin-google-fonts'
+import './neon.css'
+import Toggle from './Utilities/Toggle'
+import { Logo, MenuIcon } from './icons'
 import { BannerText,
   HeaderWrapper,
   HeaderContainer,
@@ -44,9 +45,19 @@ class Header extends Component {
     }
   }
 
+  toggle = ({ target }) => {
+    console.log('TOGGLE');
+  }
+
+  revealMenu = () => {
+    const menu = document.getElementsByTagName('ul');
+    menu.style.transform = 'rotate(0)';
+  }
+
   render() {
     const { data, location } = this.props;
-
+    const toggle = this.toggle;
+    const revealMenu = this.revealMenu;
     return (
       <HeaderWrapper
         isHome={location.pathname === '/'}
@@ -71,11 +82,21 @@ class Header extends Component {
             </h2>
           </BannerText>
 
-          <MainNav
-            style={
-              location.pathname === '/service/' ? {fontColor: '#FF1177'} : {fontColor: '#fff'}
-            }
-          >
+          <MainNav>
+            <Toggle>
+              {({ menu, on, toggle }) => (
+                <button
+                  onClick={revealMenu}
+                  style={{
+                    background: 'transparent',
+                    border: 'none'
+                  }}
+                >
+                  <MenuIcon />
+
+                </button>
+              )}
+            </Toggle>
             <ul>
               <li>
                 <Link to={"/"}>Home</Link>
@@ -114,3 +135,11 @@ class Header extends Component {
 }
 
 export default Header;
+
+/*
+
+  style={
+    location.pathname === '/service/' ? {fontColor: '#FF1177'} : {fontColor: '#fff'}
+  }
+
+*/

@@ -7,6 +7,7 @@ import MailIcon from './MailIcon'
 import HandshakeIcon from './HandshakeIcon'
 import MeterIcon from './MeterIcon'
 import ShieldIcon from './ShieldIcon'
+import MenuIcon from './MenuIcon'
 
 export {
   GithubIcon,
@@ -16,5 +17,7 @@ export {
   GearIcon,
   HandshakeIcon,
   MeterIcon,
-  ShieldIcon
+  ShieldIcon,
+  MenuIcon,
+  Logo
 };
