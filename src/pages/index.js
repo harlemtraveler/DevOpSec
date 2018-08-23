@@ -38,6 +38,7 @@ const IndexPage = ({ data }) => (
             textAlign: 'left',
             display: 'flex',
             flexDirection: 'column',
+            justifyContent: 'center',
             overflow: 'auto'
           }}>
         <h1>Welcome</h1>

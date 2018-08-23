@@ -18,10 +18,17 @@ export const BannerText = styled.div`
   margin: 0;
   padding: 0;
   top: 30vh;
+  width: 50vw;
   text-align: center;
   position: relative;
   color: #fff;
-  z-index: 2;
+${'' /* Hides BannerText at 900px and below */}
+  @media (max-width: 600px){
+    width: 0;
+    height: 0;
+    max-height: 0;
+    display: none;
+  }
 `;
 
 export const HeaderWrapper = styled.div`
@@ -39,8 +46,25 @@ export const HeaderContainer = styled.div`
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  align-items: start;
   ${'' /* justify-items: space-between; */}
+  @media (max-width: 400px) {
+    ${'' /* grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); */}
+    grid-template-rows: repeat(auto-fit, minmax(125px, 1fr));
+    .menu-container {
+      order: 1;
+    }
+    .logo-container {
+      order: 2;
+      align-self: end;
+      justify-self: end;
+      ${'' /* svg {
+        padding-left: 100px;
+      } */}
+    }
+  }
 `;
 
 export const MainNav = styled.nav`

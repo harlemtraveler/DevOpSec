@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Link from 'gatsby-link'
-import { MainNav } from './StyledComponents'
-import { MenuIcon } from './icons'
+
 import { Style } from 'react-style-tag'
-import Roboto from 'gatsby-plugin-google-fonts'
+import { MainNav } from '../StyledComponents'
+import { MenuIcon } from '../icons'
 import {
   Collapse,
   Navbar,

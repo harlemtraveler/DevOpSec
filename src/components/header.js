@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import Roboto from 'gatsby-plugin-google-fonts'
 import MediaQuery from 'react-responsive';
 import './neon.css'
 import { Logo, MenuIcon } from './icons'
-import HeaderNav from './HeaderNav'
-import MobileNav from './MobileNav'
+import MenuButton from './Menu/MenuButton'
+import Menu from './Menu/Menu'
+import HeaderNav from './Menu/HeaderNav'
+import MobileNav from './Menu/MobileNav'
 import { BannerText,
   HeaderWrapper,
   HeaderContainer,
@@ -23,6 +24,30 @@ import {
   NavLink } from 'reactstrap'
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visible: false
+    };
+
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  handleMouseDown(e) {
+    this.toggleMenu();
+
+    console.log("clicked");
+    console.log(this.state.visible);
+    e.stopPropagation();
+  }
+
+  toggleMenu() {
+    this.setState({
+      visible: !this.state.visible
+    });
+  }
 
   componentDidUpdate(prevProps, prevState) {
 
@@ -58,13 +83,15 @@ class Header extends Component {
   render() {
     const { data, location } = this.props;
     const toggle = this.toggle;
-    const revealMenu = this.revealMenu;
+    const screenSize = document.getElementsByTagName('body')[0];
+    const logo = document.getElementsByTagName('svg');
     return (
       <HeaderWrapper
         isHome={location.pathname === '/'}
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}>
         <HeaderContainer>
-          <h1 style={{ margin: 0 }}>
+
+          <h1 className="logo-container" style={{ margin: 0 }}>
             <Link
               to="/"
               style={{
@@ -72,7 +99,13 @@ class Header extends Component {
                 textDecoration: 'none',
               }}
             >
-              <Logo />
+              <Logo className="logo" />
+            {screenSize < '300' ? logo.setAttribute("viewBox", "100 0 350 512") : console.log('full size!')}
+
+              {/* <MediaQuery query="(min-device-width: 1224px)">
+                {logo.setAttribute("viewBox", "100 0 350 512");}
+              </MediaQuery> */}
+
             </Link>
           </h1>
 
@@ -83,15 +116,10 @@ class Header extends Component {
             </h2>
           </BannerText>
 
-          <MediaQuery query="(min-device-width: 1224px)">
-            <HeaderNav />
-          </MediaQuery>
-          <MediaQuery query="(max-device-width: 1224px)">
-            <MobileNav />
-          </MediaQuery>
-
-
-
+          <MenuButton className="menu-container" handleMouseDown={this.handleMouseDown} />
+          <Menu
+            handleMouseDown={this.handleMouseDown}
+            menuVisibility={this.state.visible} />
         </HeaderContainer>
 
         <Img
@@ -121,4 +149,15 @@ export default Header;
     location.pathname === '/service/' ? {fontColor: '#FF1177'} : {fontColor: '#fff'}
   }
 
+*/
+
+/*
+  Media queries using the 'react-responsive' plugin
+
+  <MediaQuery query="(min-device-width: 1224px)">
+    <HeaderNav />
+  </MediaQuery>
+  <MediaQuery query="(max-device-width: 1224px)">
+    <MobileNav />
+  </MediaQuery>
 */

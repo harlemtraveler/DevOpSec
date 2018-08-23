@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link'
-
-import { MainNav } from './StyledComponents'
-import { MenuIcon } from './icons'
+import { MainNav } from '../StyledComponents'
+import { MenuIcon } from '../icons'
 
 
 class HeaderNav extends Component {
