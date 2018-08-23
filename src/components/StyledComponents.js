@@ -49,8 +49,8 @@ export const MainNav = styled.nav`
     display: flex;
     margin: .70rem;
   ${'' /* The two properties below hide the menu items */}
-    max-height: 0;
-    transform: rotateX(90deg);
+    ${'' /* max-height: 0;
+    transform: rotateX(90deg); */}
     li {
       margin: auto 15px;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

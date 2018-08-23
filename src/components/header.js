@@ -1,16 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import Robot from 'gatsby-plugin-google-fonts'
+import Roboto from 'gatsby-plugin-google-fonts'
+import MediaQuery from 'react-responsive';
 import './neon.css'
-import Toggle from './Utilities/Toggle'
 import { Logo, MenuIcon } from './icons'
+import HeaderNav from './HeaderNav'
+import MobileNav from './MobileNav'
 import { BannerText,
   HeaderWrapper,
   HeaderContainer,
   MainNav } from './StyledComponents'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink } from 'reactstrap'
 
 class Header extends Component {
 
@@ -45,15 +55,6 @@ class Header extends Component {
     }
   }
 
-  toggle = ({ target }) => {
-    console.log('TOGGLE');
-  }
-
-  revealMenu = () => {
-    const menu = document.getElementsByTagName('ul');
-    menu.style.transform = 'rotate(0)';
-  }
-
   render() {
     const { data, location } = this.props;
     const toggle = this.toggle;
@@ -82,36 +83,14 @@ class Header extends Component {
             </h2>
           </BannerText>
 
-          <MainNav>
-            <Toggle>
-              {({ menu, on, toggle }) => (
-                <button
-                  onClick={revealMenu}
-                  style={{
-                    background: 'transparent',
-                    border: 'none'
-                  }}
-                >
-                  <MenuIcon />
+          <MediaQuery query="(min-device-width: 1224px)">
+            <HeaderNav />
+          </MediaQuery>
+          <MediaQuery query="(max-device-width: 1224px)">
+            <MobileNav />
+          </MediaQuery>
 
-                </button>
-              )}
-            </Toggle>
-            <ul>
-              <li>
-                <Link to={"/"}>Home</Link>
-              </li>
-              <li>
-                <Link to={"/service"}>Services</Link>
-              </li>
-              <li>
-                <Link to={"/about"}>About</Link>
-              </li>
-              <li>
-                <Link to={"/contact"}>Contact</Link>
-              </li>
-            </ul>
-          </MainNav>
+
 
         </HeaderContainer>
 
