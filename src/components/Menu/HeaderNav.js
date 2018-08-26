@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link'
 import { MainNav } from '../StyledComponents'
 import { MenuIcon } from '../icons'
+import './Menu.css'
 
 
 class HeaderNav extends Component {
@@ -9,7 +10,7 @@ class HeaderNav extends Component {
   render() {
     return (
       <MainNav>
-        <ul>
+        <ul style={{display: 'flex', flexDirection: 'column'}}>
           <li>
             <Link to={"/"}>Home</Link>
           </li>

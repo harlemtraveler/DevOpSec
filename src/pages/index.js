@@ -111,7 +111,7 @@ const IndexPage = ({ data }) => (
           <ContentBlock>
             <a href="#"><MeterIcon /></a>
             <figcaption>
-              <h4>Performance Efficiency</h4>
+              <h4>Performance</h4>
               <p>
                 Keeping your business cost under control
               </p>

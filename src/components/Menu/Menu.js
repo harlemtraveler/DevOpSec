@@ -16,8 +16,9 @@ class Menu extends Component {
     return (
       <div
         id="flyoutMenu"
-        onMouseDown={this.props.handleMouseDown}
+        onClick={this.props.handleClick}
         className={visibility}>
+        {/* <div id="flyoutMenu-background" onMouseDown={this.props.handleMouseDown}></div> */}
         <HeaderNav />
       </div>
     );

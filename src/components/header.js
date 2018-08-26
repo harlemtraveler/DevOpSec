@@ -31,11 +31,11 @@ class Header extends Component {
       visible: false
     };
 
-    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  handleMouseDown(e) {
+  handleClick(e) {
     this.toggleMenu();
 
     console.log("clicked");
@@ -83,8 +83,6 @@ class Header extends Component {
   render() {
     const { data, location } = this.props;
     const toggle = this.toggle;
-    const screenSize = document.getElementsByTagName('body')[0];
-    const logo = document.getElementsByTagName('svg');
     return (
       <HeaderWrapper
         isHome={location.pathname === '/'}
@@ -99,13 +97,7 @@ class Header extends Component {
                 textDecoration: 'none',
               }}
             >
-              <Logo className="logo" />
-            {screenSize < '300' ? logo.setAttribute("viewBox", "100 0 350 512") : console.log('full size!')}
-
-              {/* <MediaQuery query="(min-device-width: 1224px)">
-                {logo.setAttribute("viewBox", "100 0 350 512");}
-              </MediaQuery> */}
-
+              <Logo />
             </Link>
           </h1>
 
@@ -115,11 +107,11 @@ class Header extends Component {
               business allowing you to focus on Innovation.
             </h2>
           </BannerText>
-
-          <MenuButton className="menu-container" handleMouseDown={this.handleMouseDown} />
+          <MenuButton className="menu-container" handleClick={this.handleClick} />
           <Menu
-            handleMouseDown={this.handleMouseDown}
+            handleClick={this.handleClick}
             menuVisibility={this.state.visible} />
+
         </HeaderContainer>
 
         <Img

@@ -8,7 +8,7 @@ class MenuButton extends Component {
     return (
       <button
         id="menuButton"
-        onMouseDown={this.props.handleMouseDown}
+        onClick={this.props.handleClick}
         style={{
           background: 'transparent',
           border: 'none',

@@ -10,6 +10,7 @@ export const IconContainer = styled.div`
   display: grid;
   grid-gap: 20px;
   align-content: center;
+  align-items: start;
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
 `;
@@ -51,18 +52,12 @@ export const HeaderContainer = styled.div`
   align-items: start;
   ${'' /* justify-items: space-between; */}
   @media (max-width: 400px) {
-    ${'' /* grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); */}
     grid-template-rows: repeat(auto-fit, minmax(125px, 1fr));
     .menu-container {
       order: 1;
     }
     .logo-container {
       order: 2;
-      align-self: end;
-      justify-self: end;
-      ${'' /* svg {
-        padding-left: 100px;
-      } */}
     }
   }
 `;
@@ -76,7 +71,7 @@ export const MainNav = styled.nav`
     ${'' /* max-height: 0;
     transform: rotateX(90deg); */}
     li {
-      margin: auto 15px;
+      margin: 15px;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       a {
@@ -89,9 +84,6 @@ export const MainNav = styled.nav`
         }
       }
     }
-  }
-  [aria-controls="menu-list"] {
-    display: none;
   }
 `;
 
@@ -157,16 +149,20 @@ export const ImageSquare = styled.div`
   border: 1px solid black;
 `;
 
-export const QuoteButton = styled.a`
-  text-decoration: none;
+export const ButtonTemplate = styled.button`
   border:2px solid;
-  padding: 10px;
+  padding: 5px;
   font-size: 20px;
   background: transparent;
-  color: #fd5200;
   font-weight: bold;
+`;
+
+export const QuoteButton = ButtonTemplate.extend`
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #000;
   &:hover {
-    background: #fd5200;
+    background: #dd7373;
     color: #000;
   }
 `;
