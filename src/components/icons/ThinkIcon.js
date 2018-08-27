@@ -8,8 +8,8 @@ class ThinkIcon extends Component {
         x="0px"
         y="0px"
         aria-hidden="true"
-        width="350px"
-        height="350px"
+        width="300px"
+        height="300px"
         viewBox="0 0 389.43 389.43"
         preserveAspectRatio="xMidYMid meet"
       >
