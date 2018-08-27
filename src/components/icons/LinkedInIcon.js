@@ -10,7 +10,7 @@ class LinkedInIcon extends Component {
         aria-hidden="true"
         width="100px"
         height="100px"
-        viewBox="0 40 512 512"
+        viewBox="0 0 512 512"
         preserveAspectRatio="xMidYMid meet"
       >
         <g fill="#000" stroke="none">

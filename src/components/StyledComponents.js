@@ -2,6 +2,30 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import Roboto from 'gatsby-plugin-google-fonts'
 
+// Reusable Styled Components
+export const PageSection = styled.div`
+  height: 50vh;
+  max-width: 100vw;
+`;
+
+export const ContentBlock = styled.figure`
+  text-align: center;
+  max-width: 200px;
+  p {
+    @media (max-width: 650px) {
+      width: 0;
+      font-size: 0;
+    }
+  }
+`;
+
+export const ButtonTemplate = styled.button`
+  border:2px solid;
+  padding: 5px;
+  font-size: 20px;
+  background: transparent;
+  font-weight: bold;
+`;
 
 export const IconContainer = styled.div`
   margin: 0;
@@ -15,6 +39,23 @@ export const IconContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
 `;
 
+export const ImageSquare = styled.div`
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  height: 350px;
+  width: 350px;
+  @media (max-width: 400px) {
+    height: 250px;
+    width: 250px;
+    @media (max-width: 325px) {
+      height: 200px;
+      width: 200px;
+    }
+  }
+`;
+
+// Header Component Styled Components
 export const BannerText = styled.div`
   margin: 0;
   padding: 0;
@@ -23,7 +64,7 @@ export const BannerText = styled.div`
   text-align: center;
   position: relative;
   color: #fff;
-${'' /* Hides BannerText at 900px and below */}
+${'' /* Hides BannerText at 600px and below */}
   @media (max-width: 600px){
     width: 0;
     height: 0;
@@ -50,7 +91,6 @@ export const HeaderContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   justify-items: center;
   align-items: start;
-  ${'' /* justify-items: space-between; */}
   @media (max-width: 400px) {
     grid-template-rows: repeat(auto-fit, minmax(125px, 1fr));
     .menu-container {
@@ -67,9 +107,6 @@ export const MainNav = styled.nav`
     list-style: none;
     display: flex;
     margin: .70rem;
-  ${'' /* The two properties below hide the menu items */}
-    ${'' /* max-height: 0;
-    transform: rotateX(90deg); */}
     li {
       margin: 15px;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -87,15 +124,11 @@ export const MainNav = styled.nav`
   }
 `;
 
+// Home Page Styled Components
 export const HomePageContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 1fr 1fr 1fr;
-`;
-
-export const PageSection = styled.div`
-  height: 50vh;
-  max-width: 100vw;
 `;
 
 export const WelcomeSection = PageSection.extend`
@@ -132,37 +165,26 @@ export const QuoteSection = PageSection.extend`
     }
   }
 `;
-// 340px
-export const ContentBlock = styled.figure`
-  text-align: center;
-  max-width: 200px;
-  p {
-    @media (max-width: 650px) {
-      width: 0;
-      font-size: 0;
-    }
-  }
-`;
-// Within ContentBlock, text wrapped in <p> is unresponsive at 650 and below
-
-export const ImageSquare = styled.div`
-  border: 1px solid black;
-`;
-
-export const ButtonTemplate = styled.button`
-  border:2px solid;
-  padding: 5px;
-  font-size: 20px;
-  background: transparent;
-  font-weight: bold;
-`;
 
 export const QuoteButton = ButtonTemplate.extend`
   text-decoration: none;
   padding: 5px 10px;
   color: #000;
   &:hover {
-    background: #dd7373;
+    background: #d81e5b;
     color: #000;
   }
+`;
+
+// Service Page Styled Components
+export const ServicePageContainer = styled.div`
+  margin: 0;
+  padding: 40px 0 0 0;
+  display: grid;
+  grid-gap: 20px;
+  ${'' /* grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr; */}
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+
 `;
