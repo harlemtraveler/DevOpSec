@@ -17,6 +17,7 @@ import {
   HandshakeIcon,
   MeterIcon,
   ShieldIcon,
+  ThinkIcon,
   MenuIcon } from '../components/icons'
 
 
@@ -24,14 +25,23 @@ const IndexPage = ({ data }) => (
   <div>
     <HomePageContainer>
       <WelcomeSection>
-          <Img
+          {/* <Img
             className='lightbulb'
             style={{
               display: 'block',
               maxHeight: '50vh',
             }}
             sizes={data.ImacPinkScreen.sizes}
-          />
+          /> */}
+          <div
+            style={{
+              display: 'grid',
+              alignContent: 'center',
+              justifyContent: 'center',
+              maxHeight: '50vh',
+            }}>
+            <ThinkIcon />
+          </div>
 
         <div
           style={{

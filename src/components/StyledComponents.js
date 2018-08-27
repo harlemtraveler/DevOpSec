@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import Roboto from 'gatsby-plugin-google-fonts'
+import './fonts.css'
 
 // Reusable Styled Components
 export const PageSection = styled.div`
@@ -40,11 +40,21 @@ export const IconContainer = styled.div`
 `;
 
 export const ImageSquare = styled.div`
-  align-self: center;
+  text-align: center;
   margin: 0;
   padding: 0;
   height: 350px;
   width: 350px;
+  &:hover {
+    div {
+      opacity: 0.5;
+    }
+    h3 {
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.5s ease-in;
+    }
+  }
   @media (max-width: 400px) {
     height: 250px;
     width: 250px;
@@ -61,6 +71,7 @@ export const BannerText = styled.div`
   padding: 0;
   top: 30vh;
   width: 50vw;
+  font-family: 'Maven Pro', sans-serif;
   text-align: center;
   position: relative;
   color: #fff;
@@ -105,8 +116,13 @@ export const HeaderContainer = styled.div`
 export const MainNav = styled.nav`
   ul {
     list-style: none;
+    font-weight: 200;
     display: flex;
     margin: .70rem;
+    @media (max-width: 550px) {
+      font-size: 18px;
+      margin-left: 0;
+    }
     li {
       margin: 15px;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -132,7 +148,9 @@ export const HomePageContainer = styled.div`
 `;
 
 export const WelcomeSection = PageSection.extend`
-  background: #fff;
+  ${'' /* background: linear-gradient(#ADA996, #F2F2F2, #DBDBDB, #EAEAEA); */}
+  ${'' /* background: linear-gradient(#ECE9E6, #ffffff); */}
+  ${'' /* background: linear-gradient(#F0F2F0, #000C40); */}
   text-align: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
@@ -168,7 +186,8 @@ export const QuoteSection = PageSection.extend`
 
 export const QuoteButton = ButtonTemplate.extend`
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 5px 25px;
+  border-radius: 5px;
   color: #000;
   &:hover {
     background: #d81e5b;
@@ -187,4 +206,11 @@ export const ServicePageContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   justify-items: center;
 
+`;
+
+export const HoverHeading = styled.h3`
+  color: #000;
+  font-weight: normal;
+  visibility: hidden;
+  opacity: 0;
 `;

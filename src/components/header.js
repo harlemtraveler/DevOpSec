@@ -4,7 +4,9 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import MediaQuery from 'react-responsive';
+import MavenPro from 'gatsby-plugin-google-fonts'
 import './neon.css'
+import './fonts.css'
 import { Logo, MenuIcon } from './icons'
 import MenuButton from './Menu/MenuButton'
 import Menu from './Menu/Menu'
@@ -102,7 +104,7 @@ class Header extends Component {
           </h1>
 
           <BannerText>
-            <h2>
+            <h2 style={{fontWeight: 'normal', fontSize: '2em', fontFamily: 'Open Sans'}}>
               Architecting, Building, and Securing your
               business allowing you to focus on Innovation.
             </h2>

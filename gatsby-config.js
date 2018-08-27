@@ -25,6 +25,8 @@ module.exports = {
       options: {
         fonts: [
           `Roboto`,
+          `Georgia`,
+          `Maven Pro`,
           `source sans pro\:300,400,400i,700`
         ]
       }

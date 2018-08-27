@@ -8,6 +8,7 @@ import HandshakeIcon from './HandshakeIcon'
 import MeterIcon from './MeterIcon'
 import ShieldIcon from './ShieldIcon'
 import MenuIcon from './MenuIcon'
+import ThinkIcon from './ThinkIcon'
 
 export {
   GithubIcon,
@@ -19,5 +20,6 @@ export {
   MeterIcon,
   ShieldIcon,
   MenuIcon,
+  ThinkIcon,
   Logo
 };

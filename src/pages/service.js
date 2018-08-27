@@ -1,46 +1,68 @@
 import React, { Component } from 'react';
 import Link from "gatsby-link";
 import Img from 'gatsby-image'
-import { ServicePageContainer, PageSection, ImageSquare } from '../components/StyledComponents'
+import {
+  ServicePageContainer,
+  PageSection,
+  ImageSquare,
+  HoverHeading } from '../components/StyledComponents'
 
 const Service = ({ data }) => (
   <div>
     <ServicePageContainer>
       <ImageSquare>
-        <Img
-          style={{top: 0, left: 0, height: '100%', width: '100%' }}
-          sizes={ data.devopsServiceImage.sizes }
-        />
+        <a href="#">
+          <Img
+            style={{top: 0, left: 0, height: '30vh'}}
+            sizes={ data.devopsServiceImage.sizes }
+          />
+        </a>
+        <HoverHeading>DevOps</HoverHeading>
       </ImageSquare>
       <ImageSquare>
-        <Img
-          style={{top: 0, left: 0, height: '100%', width: '100%' }}
-          sizes={ data.developerServiceImage.sizes }
-        />
+        <a href="#">
+          <Img
+            style={{top: 0, left: 0, height: '30vh'}}
+            sizes={ data.developerServiceImage.sizes }
+          />
+        </a>
+        <HoverHeading>Web Development</HoverHeading>
       </ImageSquare>
       <ImageSquare>
-        <Img
-          style={{top: 0, left: 0, height: '100%', width: '100%' }}
-          sizes={ data.scriptingServiceImage.sizes }
-        />
+        <a href="#">
+          <Img
+            style={{top: 0, left: 0, height: '30vh'}}
+            sizes={ data.scriptingServiceImage.sizes }
+          />
+        </a>
+        <HoverHeading>Scripting</HoverHeading>
       </ImageSquare>
       <ImageSquare>
-        <Img
-          style={{top: 0, left: 0, height: '100%', width: '100%' }}
-          sizes={ data.cloudServiceImage.sizes }
-        />
+        <a href="#">
+          <Img
+            style={{top: 0, left: 0, height: '30vh'}}
+            sizes={ data.cloudServiceImage.sizes }
+          />
+        </a>
+        <HoverHeading>Cloud Architecture</HoverHeading>
       </ImageSquare>
       <ImageSquare>
-        <Img
-          style={{top: 0, left: 0, height: '100%', width: '100%' }}
-          sizes={ data.securityServiceImage.sizes }
-        />
+        <a href="#">
+          <Img
+            style={{top: 0, left: 0, height: '30vh'}}
+            sizes={ data.securityServiceImage.sizes }
+          />
+        </a>
+        <HoverHeading>Cybersecurity</HoverHeading>
       </ImageSquare>
       <ImageSquare>
-        <Img
-          style={{top: 0, left: 0, height: '100%', width: '100%' }}
-          sizes={ data.marketingServiceImage.sizes }
-        />
+        <a href="#">
+          <Img
+            style={{top: 0, left: 0, height: '30vh'}}
+            sizes={ data.marketingServiceImage.sizes }
+          />
+        </a>
+        <HoverHeading>Digital Marketing</HoverHeading>
       </ImageSquare>
 
     </ServicePageContainer>
