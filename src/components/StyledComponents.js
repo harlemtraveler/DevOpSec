@@ -214,3 +214,12 @@ export const HoverHeading = styled.h3`
   visibility: hidden;
   opacity: 0;
 `;
+
+// About Page Styled Components
+
+export const AboutPageContainer = styled.div`
+  margin: 0;
+  li {
+    list-style: none;
+  }
+`;

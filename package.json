@@ -17,6 +17,7 @@
     "gatsby-transformer-sharp": "^1.6.27",
     "react-helmet": "^5.2.0",
     "react-responsive": "^5.0.0",
+    "react-simple-contact-form": "0.0.1",
     "react-style-tag": "^2.0.1",
     "reactstrap": "^6.4.0",
     "styled-components": "^3.4.2",
