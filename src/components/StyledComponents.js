@@ -148,28 +148,27 @@ export const HomePageContainer = styled.div`
 `;
 
 export const WelcomeSection = PageSection.extend`
-  ${'' /* background: linear-gradient(#ADA996, #F2F2F2, #DBDBDB, #EAEAEA); */}
-  ${'' /* background: linear-gradient(#ECE9E6, #ffffff); */}
-  ${'' /* background: linear-gradient(#F0F2F0, #000C40); */}
   text-align: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(182px, 1fr));
-  ${'' /* @media (max-width: 1032px) {
+  height: auto;
+  @media (max-width: 1024px) {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(182px, 1fr));
+  }
+  @media (max-width: 1280px) {
+    margin: 30px 10px;
+    font-size: 20px;
+  }
+  ${'' /* @media (max-width: 1024) {
+    font-size: 18px;
   } */}
   @media (max-width: 650px) {
-    grid-template-columns: 1fr;
     font-size: 6px;
-    display: flex;
-  }
-  Img {
-    @media (max-width: 650px) {
-      width: 0;
-      height: 0;
-      max-height: 0;
-      display: none;
+    svg {
+      height: 250px;
+      width: 250px;
     }
   }
 `;

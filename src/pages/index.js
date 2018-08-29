@@ -35,10 +35,7 @@ const IndexPage = ({ data }) => (
           /> */}
           <div
             style={{
-              display: 'grid',
-              alignContent: 'center',
-              justifyContent: 'center',
-              maxHeight: '50vh',
+              // minHeight: '100px'
             }}>
             <ThinkIcon />
           </div>
@@ -46,9 +43,6 @@ const IndexPage = ({ data }) => (
         <div
           style={{
             textAlign: 'left',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
             overflow: 'auto'
           }}>
         <h1>Welcome</h1>
