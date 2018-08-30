@@ -150,6 +150,7 @@ export const HomePageContainer = styled.div`
 export const WelcomeSection = PageSection.extend`
   text-align: center;
   display: grid;
+  margin: 12vh 10px;
   grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(182px, 1fr));
   height: auto;
